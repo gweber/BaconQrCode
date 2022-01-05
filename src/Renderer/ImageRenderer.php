@@ -38,6 +38,7 @@ final class ImageRenderer implements RendererInterface
         $margin = $this->rendererStyle->getMargin();
         $matrix = $qrCode->getMatrix();
         $matrixSize = $matrix->getWidth();
+        $link = $this->rendererStyle->getLink();
 
         if ($matrixSize !== $matrix->getHeight()) {
             throw new InvalidArgumentException('Matrix must have the same width and height');
@@ -47,7 +48,7 @@ final class ImageRenderer implements RendererInterface
         $moduleSize = $size / $totalSize;
         $fill = $this->rendererStyle->getFill();
 
-        $this->imageBackEnd->new($size, $fill->getBackgroundColor());
+        $this->imageBackEnd->new($size, $fill->getBackgroundColor(), $link);
         $this->imageBackEnd->scale((float) $moduleSize);
         $this->imageBackEnd->translate((float) $margin, (float) $margin);
 
