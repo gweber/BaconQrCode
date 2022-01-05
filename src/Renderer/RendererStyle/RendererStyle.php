@@ -34,19 +34,26 @@ final class RendererStyle
      * @var Fill
      */
     private $fill;
+    
+    /**
+     * @var string
+     */
+    private $link;
 
     public function __construct(
         int $size,
         int $margin = 4,
         ?ModuleInterface $module = null,
         ?EyeInterface $eye = null,
-        ?Fill $fill = null
+        ?Fill $fill = null,
+        string $link = null
     ) {
         $this->margin = $margin;
         $this->size = $size;
         $this->module = $module ?: SquareModule::instance();
         $this->eye = $eye ?: new ModuleEye($this->module);
         $this->fill = $fill ?: Fill::default();
+        $this->link = $link ?: '';
     }
 
     public function withSize(int $size) : self
@@ -86,5 +93,10 @@ final class RendererStyle
     public function getFill() : Fill
     {
         return $this->fill;
+    }
+    
+    public function getLink(): string
+    {
+        return $this->link;
     }
 }
