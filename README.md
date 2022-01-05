@@ -8,6 +8,8 @@
 
 
 ## Introduction
+This version of BaconQrCode has been extended to add a href links into SVGs.
+
 BaconQrCode is a port of QR code portion of the ZXing library. It currently
 only features the encoder part, but could later receive the decoder part as
 well.
